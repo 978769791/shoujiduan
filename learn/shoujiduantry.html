@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        .phone{
+            position: absolute;
+            width: 100%;
+            background: pink;
+        }
+        .phone .UL li{
+            list-style-type: none;
+            float: left;
+            width: 10%;
+            text-align: center;
+            height: 50px;
+            line-height: 50px;
+            cursor: pointer;
+        }
+        .try li{
+            display: inline;
+        }
+        .container{
+            height:300px;
+            background:#ccc;
+
+            display:table-cell;/*IE8以上及Chrome、Firefox*/
+            vertical-align:middle;/*IE8以上及Chrome、Firefox*/
+        }
+
+    </style>
+</head>
+<body>
+<ul class="try">
+    <li>456</li>
+    <li>456</li>
+    <li>456</li>
+    <li>456</li>
+</ul>
+<div class="container">
+    <div>
+        <p>看我是否可以居中。</p>
+        <p>看我是否可以居中。</p>
+        <p>看我是否可以居中。</p>
+        <p>看我是否可以居中。</p>
+        <p>看我是否可以居中。</p>
+    </div>
+</div>
+<div class="phone">
+
+    <ul class="UL" style="padding: 0px">
+        <li class="moving" style="background: lightseagreen">水情</li>
+        <li>水情</li>
+        <li>水情</li>
+        <li>水情</li>
+        <li>水情</li>
+        <li>水情</li>
+        <li>水情</li>
+        <li>水情</li>
+        <li>水情</li>
+    </ul>
+
+</div>
+<script src="jquery-2.1.4.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(".UL li").on('click',function () {
+//        console.log(111);
+        $(this).addClass("moving").siblings().removeClass("moving");
+    })
+</script>
+</body>
+
+</html>

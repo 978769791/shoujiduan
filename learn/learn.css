@@ -1,0 +1,44 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+ul li{
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+}
+.mars{
+    width: 50%;
+    height: 100%;
+    background: pink;
+    position: absolute;
+}
+.mars .first{
+    float: left;
+}
+.mars .secend{
+    float: right;
+
+}
+.coin{
+    width: 50%;
+    height: 100%;
+    background: cornflowerblue;
+    position: absolute;
+    right: 0px;
+}
+.coin .first{
+    float: left;
+}
+.coin .secend{
+    float: right;
+
+}
+.coin .content{
+    width: 300px;
+    height: 30px;
+    background: red;
+    margin-top: 250px;
+    margin-left: 60px;
+}

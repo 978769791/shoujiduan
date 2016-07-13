@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        ul li{
+            list-style-type: none;
+        }
+        .target ul li{
+            float: left;
+            width: 20%;
+            background: lightseagreen;
+            text-align: center;
+        }
+        .conter-nav{
+            width: 100%;
+            background: blue;
+        }
+        .conter-nav ul li{
+            width: 20%;
+            float: left;
+            text-align: center;
+            height: 40px;
+            line-height: 40px;
+        }
+    </style>
+</head>
+<body>
+<div class="conter-nav">
+    <ul>
+        <li>欢迎</li>
+        <li>欢迎</li>
+        <li>欢迎</li>
+        <li>欢迎</li>
+        <li>欢迎</li>
+    </ul>
+</div>
+<div class="target" style="width: 100%">
+    <ul>
+        <li>径流预报</li>
+        <li>历史洪水</li>
+        <li>视频监控</li>
+        <li>淤地坝</li>
+        <li>实时水情</li>
+    </ul>
+</div>
+
+<!--日历控件-->
+<input id="hello" class="laydate-icon" placeholder="2016-06-22">
+
+<input id="hello1" class="laydate-icon">
+
+
+<!--分页控件-->
+<div id="page3"></div>
+
+<div id="page11"></div>
+
+
+
+<script src="jquery-2.1.4.min.js" type="text/javascript"></script>
+<!--日期控件-->
+<script src="layer-v2.1/layer/layer.js"></script>
+<script src="laydate-v1.1/laydate/laydate.js"></script>
+
+<!--分页控件-->
+<script src="laypage-v1.3/laypage/laypage.js"></script>
+<script type="text/javascript">
+
+//日期控件
+ laydate({
+
+    elem: '#hello', //目标元素。由于laydate.js封装了一个轻量级的选择器引擎，因此elem还允许你传入class、tag但必须按照这种方式 '#id .class'
+    event: 'focus' //响应事件。如果没有传入event，则按照默认的click
+
+});
+laydate({
+    elem: '#hello1', //目标元素。由于laydate.js封装了一个轻量级的选择器引擎，因此elem还允许你传入class、tag但必须按照这种方式 '#id .class'
+    event: 'focus' //响应事件。如果没有传入event，则按照默认的click
+});
+
+
+//分页控件
+laypage({
+    cont: $('#page3'),
+     //容器。值支持id名、原生dom对象，jquery对象,
+    pages: 100, //总页数
+    skip: true, //是否开启跳页
+    skin: '#AF0000',
+    curr: location.hash.replace('#!fenye=', ''),
+    first:false,
+    hash:'fenye',
+    groups: 6 //连续显示分页数
+});
+
+laypage({
+
+    cont: 'page11',
+    pages: 18, //可以叫服务端把总页数放在某一个隐藏域，再获取。假设我们获取到的是18
+    curr: function(){ //通过url获取当前页，也可以同上（pages）方式获取
+        var page = location.search.match(/page=(\d+)/);
+        return page ? page[1] : 1;
+    }(),
+    jump: function(e, first){ //触发分页后的回调
+        if(!first){ //一定要加此判断，否则初始时会无限刷新
+            location.href = '?page='+e.curr;
+        }
+    }
+});
+
+
+
+</script>
+</body>
+</html>
